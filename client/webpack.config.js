@@ -5,7 +5,7 @@ const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = () => {
   return {
-    mode: "development",
+    mode: "production",
     entry: {
       main: "./src/js/index.js",
       install: "./src/js/install.js",
@@ -15,18 +15,23 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
+      // Webpack plugin that generates html file and injects bundles
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        title: "Webpack Plugin",
+      }),
       // Creates manifest.json file
       new WebpackPwaManifest({
-        name: "BTE",
-        short_name: "BTE",
-        description: "Best Text Editor",
-        display: "standalone",
+        fingerprints: false,
+        inject: true,
+        name: "JATE",
+        short_name: "JATE",
+        description: "Just Another Text Editor",
+        //display: "standalone",
         background_color: "#225ca3",
         theme_color: "#225ca3",
         start_url: "/",
-        publicPath: "/",
-        fingerprints: false,
-        inject: true,
+        //publicPath: "/",
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
@@ -35,15 +40,10 @@ module.exports = () => {
           },
         ],
       }),
-      // Webpack plugin that generates html file and injects bundles
-      new HtmlWebpackPlugin({
-        template: "./index.html",
-        title: "Webpack Plugin",
-      }),
 
       // Injects our custom service worker
       new InjectManifest({
-        swSrc: "./src-sw.js",
+        swSrc: "./src-sw",
         swDest: "src-sw.js",
       }),
     ],
