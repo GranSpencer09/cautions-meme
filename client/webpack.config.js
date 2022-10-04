@@ -20,6 +20,12 @@ module.exports = () => {
         template: "./index.html",
         title: "Webpack Plugin",
       }),
+      // Injects our custom service worker
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
+
       // Creates manifest.json file
       new WebpackPwaManifest({
         fingerprints: false,
@@ -27,11 +33,11 @@ module.exports = () => {
         name: "JATE",
         short_name: "JATE",
         description: "Just Another Text Editor",
-        //display: "standalone",
+        display: "standalone",
         background_color: "#225ca3",
         theme_color: "#225ca3",
-        start_url: "/",
-        //publicPath: "/",
+        start_url: "./",
+        publicPath: "./",
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
@@ -39,12 +45,6 @@ module.exports = () => {
             destination: path.join("assets", "icons"),
           },
         ],
-      }),
-
-      // Injects our custom service worker
-      new InjectManifest({
-        swSrc: "./src-sw",
-        swDest: "src-sw.js",
       }),
     ],
 

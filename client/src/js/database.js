@@ -28,7 +28,7 @@ export const putDb = async (id, content) => {
 
   // Use the .put() method on the store and pass in the content.
   const request = store.put({
-    id: id,
+    id: 1,
     value: content,
   });
 
