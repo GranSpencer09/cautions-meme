@@ -28,7 +28,7 @@ registerRoute(({ request }) => request.mode === "navigate", pageCache);
 
 // Implement asset caching
 registerRoute(
-  // Here we define the callback function that will filter the requests we want to cache (in this case, JS and CSS files)
+  // Here we define the callback function that will filter the requests we want to cache
   ({ request }) => request.destination === "image",
   new CacheFirst({
     // Name of the cache storage.

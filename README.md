@@ -1,30 +1,41 @@
-# Text Editor Starter Code
+# Cautions-Meme
 
-Done
-GIVEN a text editor web application
-WHEN I open my application in my editor
-THEN I should see a client server folder structure
+## Description
 
-ToDO
-WHEN I run `npm run start` from the root directory
-THEN I find that my application should start up the backend and serve the client
-WHEN I run the text editor application from my terminal
-THEN I find that my JavaScript files have been bundled using webpack
-WHEN I run my webpack plugins
-THEN I find that I have a generated HTML file, service worker, and a manifest file
-WHEN I use next-gen JavaScript in my application
-THEN I find that the text editor still functions in the browser without errors
-WHEN I open the text editor
-THEN I find that IndexedDB has immediately created a database storage
-WHEN I enter content and subsequently click off of the DOM window
-THEN I find that the content in the text editor has been saved with IndexedDB
-WHEN I reopen the text editor after closing it
-THEN I find that the content in the text editor has been retrieved from our IndexedDB
-WHEN I click on the Install button
-THEN I download my web application as an icon on my desktop
-WHEN I load my web application
-THEN I should have a registered service worker using workbox
-WHEN I register a service worker
-THEN I should have my static assets pre cached upon loading along with subsequent pages and static assets
-WHEN I deploy to Heroku
-THEN I should have proper build scripts for a webpack application
+Creating this text editor allows the user keep track of everyday notes in an application they can install in their local computer to operate it offline. This single-page progressive web application specifically uses an IndexedDB database to track the user's notes. The app specifically uses IndexedDB to create an object store and includes both GET and PUT methods. Finally, the code is bundled with webpack and uses a service worker that caches static images.This app was an introduction to PWAs, webpack and service worked. I learned how to properly create a custom service worker and create a fully working PWA.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Features](#features)
+
+## Installation
+
+    1. Navigate to the code repository
+    2. Press the green code button, located near the about section
+    3. Copy either the HTTPS, Git CLI, download the zip, open with GitHub desktop, or copy the SSH link.
+    4. Depending on download method, use Git, executable, or the desktop application to open the content files.
+    5. All of the content of the repository will be available after completion of the previous state.
+
+## Usage
+
+After downloading the code, to properly use the app, you'll need to run npm run install to collect all the neccessary packages. Then simple use the command, npm run start or npm run build to create the right distributable code needed to initially run the app. Open the app and use it while online, but if you'd like to use it offline, you'll need to install the application.
+
+If you chose to use the Heroku link, you can move straight to installing or using the app online.
+
+## Credits
+
+Me and my classmates worked together to help one another through this more challenging assignment.
+
+## Features
+
+- Uses IndexedDB to create an object store and includes both GET and PUT methods
+- The application works without an internet connection
+- Automatically saves content inside the text editor when the DOM window is unfocused
+- Bundled with webpack
+- Create a service worker with workbox that Caches static assets
+- The application should use babel in order to use async / await
+- Application must have a generated manifest.json using the WebpackPwaManifest plug-in
+- Can be installed as a Progressive Web Application
